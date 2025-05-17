@@ -25,3 +25,16 @@ Install them with this single command:
 
 ```bash
 pip install requests beautifulsoup4 openai python-dotenv ipython
+
+##⚙️ Setup Guide
+Create a .env file in the root of the project.
+
+Add your OpenAI API credentials by including the following variables in your .env file:
+
+OPENAI_API_AZURE_KEY: Your OpenAI Azure API Key
+
+AZURE_OPENAI_ENDPOINT: Your OpenAI API Endpoint URL
+
+OPENAI_AZURE_MODEL: Model ID (e.g., gpt-3.5-turbo)
+
+Example .env file:
