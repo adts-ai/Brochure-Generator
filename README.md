@@ -1,40 +1,84 @@
-# ✨ Brochure Generator with OpenAI API 🚀
+# Brochure Generator with OpenAI API 🌍📄
 
-Are you looking to automate the process of creating professional brochures from websites? This Python-powered Brochure Generator is here to save you time and effort by scraping valuable content from websites and transforming it into a well-crafted brochure. Powered by OpenAI’s GPT model, this project filters through web content to extract only the most relevant information and presents it in a polished, shareable format. Perfect for businesses, content creators, and digital marketers looking to streamline their marketing materials!
+## A Python Tool to Create Brochures from Websites 🚀💡
 
-## 🚀 Key Features
+The **Brochure Generator** is a Python-based tool that scrapes relevant content from any website and uses the power of OpenAI’s GPT model to generate a polished brochure. It extracts company info, career opportunities, and other valuable details while filtering out unnecessary links like privacy policies. The final brochure is displayed in an engaging, readable format such as **Markdown**.
 
-- **Smart Web Scraping**: Automatically grabs relevant data from websites like company overviews, careers, and more.
-- **AI-Powered Brochure Creation**: Uses OpenAI to craft engaging and concise brochures from raw website data.
-- **Customizable & Scalable**: Easily adaptable to other use cases—just provide any website URL and let the magic happen.
-- **Save Time**: Cut down on hours spent manually creating marketing materials by automating the process with AI.
+![Brochure Generator](./visuals/brochure_generator_visual.png)  <!-- Optional image path -->
 
-## 🔧 Requirements
+## Features
 
-Before you get started, make sure you have the following:
+✨ **Key Features**:
+- **Scrapes websites** and extracts only relevant content like company info, about pages, and careers.
+- **Uses OpenAI's GPT model** to generate a concise, engaging brochure from the scraped content.
+- **Multiple output formats** supported, with **Markdown** as the default.
+- **Simple to use**: Just provide any website URL, and the tool generates a professional brochure in seconds.
 
-- **Python 3.6+**
-- Libraries:
-  - `requests`
-  - `beautifulsoup4`
-  - `openai`
-  - `python-dotenv`
-  - `IPython`
+## Requirements
 
-Install them with this single command:
+To use the **Brochure Generator**, ensure you have the following:
+
+- **Python 3.x**
+- **requests**: To retrieve webpage content.
+- **BeautifulSoup**: For parsing HTML and cleaning the website content.
+- **openai**: To interact with OpenAI’s GPT model.
+- **python-dotenv**: To securely manage API keys and environment variables.
+- **IPython**: For displaying the summary in Markdown (optional, especially for Jupyter environments).
+
+Install the required libraries using pip:
 
 ```bash
 pip install requests beautifulsoup4 openai python-dotenv ipython
+```
 
-##⚙️ Setup Guide
-Create a .env file in the root of the project.
+## Usage
+Initialization
+First, create a `.env` file and provide your OpenAI API credentials as shown below:
 
-Add your OpenAI API credentials by including the following variables in your .env file:
+```env
+OPENAI_API_AZURE_KEY=your_openai_api_key_here
+AZURE_OPENAI_ENDPOINT=https://your_endpoint_url_here
+OPENAI_AZURE_MODEL=gpt-4o-mini
+```
 
-OPENAI_API_AZURE_KEY: Your OpenAI Azure API Key
+## Generating a Brochure
+To generate a brochure for a website, simply call the `BrochureGenerator.generate()` method with the company name and website URL:
 
-AZURE_OPENAI_ENDPOINT: Your OpenAI API Endpoint URL
+```python
+BrochureGenerator.generate("HuggingFace", "https://huggingface.co")
+```
 
-OPENAI_AZURE_MODEL: Model ID (e.g., gpt-3.5-turbo)
+This will:
 
-Example .env file:
+1. Scrape the website content.
+
+2. Use OpenAI’s GPT model to generate a polished brochure.
+
+3. Display the result in the specified format (Markdown).
+
+## Customizing
+You can customize the generated brochure by modifying the scraping and content formatting options in the code. For example, you can adjust the model or change the content structure as needed.
+
+```python
+BrochureGenerator.generate("My Company", "https://example.com")
+```
+
+## How it Works 🔍
+1. Website Scraping: The `Website` class extracts the title, text, and links from the provided URL. It filters out unnecessary links and keeps only the relevant ones (e.g., About, Careers).
+
+2. Link Filtering: The system processes the extracted links, removing irrelevant ones like Terms of Service, Privacy Policy, etc., and identifies key links to be included in the brochure.
+
+3. AI Brochure Creation: Using OpenAI’s GPT model, the `BrochureGenerator` class generates a professional brochure, making the information engaging and clear.
+
+4. Display Summary: The brochure content is returned and displayed in an easy-to-read format (e.g., Markdown).
+
+## Example Code
+
+```python
+BrochureGenerator.generate("HuggingFace", "https://huggingface.co")
+```
+
+This will automatically fetch the company information, generate a brochure, and display it in the Markdown format.
+
+## Contribution 🤝
+Feel free to fork this repository, submit issues, or contribute by making pull requests to improve the project! We welcome your contributions to make the Brochure Generator even better.
